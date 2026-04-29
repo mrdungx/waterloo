@@ -21,11 +21,11 @@
   .editor-layout { display: flex; height: calc(100vh - 110px); }
 
   .editor-topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: #fff; border-bottom: 1px solid #e5e5ea; }
-  .editor-topbar input { font-size: 18px; font-weight: 600; border: 1px dashed #d1d1d6; padding: 6px 12px; border-radius: 6px; width: 400px; color: #1a1a2e; }
+  .editor-topbar input { font-size: 18px; font-weight: 600; border: 1px dashed #d1d1d6; padding: 6px 12px; border-radius: 6px; width: 500px; color: #1a1a2e; }
   .btn-publish { background: #6c5ce7; color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
   .btn-import { background: #fff; color: #6c5ce7; border: 2px solid #6c5ce7; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-right: 12px; }
 
-  .sidebar { width: 260px; background: #fff; border-right: 1px solid #e5e5ea; padding: 16px; overflow-y: auto; }
+  .sidebar { width: 280px; background: #fff; border-right: 1px solid #e5e5ea; padding: 16px; overflow-y: auto; }
   .sidebar h3 { font-size: 12px; text-transform: uppercase; color: #8e8e93; letter-spacing: 1px; margin-bottom: 12px; }
   .block-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; margin-bottom: 6px; cursor: grab; border: 1px solid #e5e5ea; background: #fafafa; font-size: 13px; }
   .block-item:hover { background: #f0edff; border-color: #6c5ce7; }
@@ -48,11 +48,12 @@
   .learner-container { max-width: 720px; margin: 0 auto; padding: 32px 24px; }
   .progress-bar-container { position: sticky; top: 0; background: #fff; padding: 12px 0; z-index: 10; border-bottom: 1px solid #e5e5ea; margin-bottom: 24px; }
   .progress-bar { height: 6px; background: #e5e5ea; border-radius: 3px; }
-  .progress-bar .fill { height: 100%; background: #6c5ce7; border-radius: 3px; width: 40%; transition: width 0.3s; }
+  .progress-bar .fill { height: 100%; background: #6c5ce7; border-radius: 3px; width: 60%; transition: width 0.3s; }
   .progress-label { font-size: 12px; color: #8e8e93; margin-top: 4px; }
 
   .lesson-header { margin-bottom: 32px; }
-  .lesson-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .lesson-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .lesson-header .course-name { font-size: 14px; color: #6c5ce7; font-weight: 500; margin-bottom: 8px; }
   .lesson-header .meta { font-size: 13px; color: #8e8e93; }
 
   .lesson-block { margin-bottom: 28px; }
@@ -67,6 +68,7 @@
   .quiz-block .option.selected { border-color: #6c5ce7; background: #f0edff; }
   .quiz-block .feedback { margin-top: 12px; padding: 12px; border-radius: 8px; font-size: 13px; }
   .quiz-block .feedback.correct { background: #f0fff4; color: #1b7a3d; border: 1px solid #34c759; }
+  .quiz-block .feedback.incorrect { background: #fff5f5; color: #c53030; border: 1px solid #fc8181; }
 
   .section-complete { display: flex; align-items: center; gap: 8px; padding: 8px 0; margin-top: 8px; }
   .section-complete input { accent-color: #6c5ce7; width: 16px; height: 16px; }
@@ -82,7 +84,8 @@
 
   .lesson-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .lesson-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e5e5ea; }
-  .lesson-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .lesson-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .lesson-card .lesson-module { font-size: 12px; color: #6c5ce7; font-weight: 500; margin-bottom: 6px; }
   .lesson-card .lesson-meta { font-size: 12px; color: #8e8e93; margin-bottom: 12px; }
   .lesson-card .lesson-stats { display: flex; gap: 16px; }
   .lesson-card .lesson-stat { font-size: 13px; }
@@ -105,12 +108,12 @@
 </div>
 
 <!-- ===== SCREEN 1: LESSON EDITOR ===== -->
-<!-- The trainer's workspace for building a self-paced lesson -->
+<!-- Barbara is editing Lesson 4 from Module 1 of her course -->
 <div class="screen active" id="editor">
   <div class="editor-topbar">
     <div style="display:flex;align-items:center;gap:12px">
       <span style="font-size:20px">📚</span>
-      <input type="text" value="Product Training Basics - Module 1" />
+      <input type="text" value="Obtain your official registration number (NDA)" />
     </div>
     <div>
       <button class="btn-import">Import from AhaSlides</button>
@@ -121,62 +124,75 @@
   <div class="editor-layout">
     <div class="sidebar">
       <h3>Lesson Blocks</h3>
-      <!-- Each block represents one content unit in the lesson -->
       <div class="block-item active">
-        <span class="grip">⠿</span>
+        <span class="grip">&#x2807;</span>
         <span class="icon">📝</span>
-        <span>Welcome & Overview</span>
+        <span>Introduction: Why the NDA matters</span>
       </div>
       <div class="block-item">
-        <span class="grip">⠿</span>
+        <span class="grip">&#x2807;</span>
         <span class="icon">🖼</span>
-        <span>Product Architecture</span>
+        <span>NDA application process diagram</span>
       </div>
       <div class="block-item">
-        <span class="grip">⠿</span>
+        <span class="grip">&#x2807;</span>
         <span class="icon">🎬</span>
-        <span>Video: Core Features</span>
+        <span>Video: Filing with the DREETS</span>
       </div>
       <div class="block-item">
-        <span class="grip">⠿</span>
+        <span class="grip">&#x2807;</span>
+        <span class="icon">📝</span>
+        <span>Required documents checklist</span>
+      </div>
+      <div class="block-item">
+        <span class="grip">&#x2807;</span>
         <span class="icon">✅</span>
-        <span>Knowledge Check</span>
+        <span>Quiz: Registration procedures</span>
       </div>
       <div class="block-item">
-        <span class="grip">⠿</span>
+        <span class="grip">&#x2807;</span>
+        <span class="icon">📝</span>
+        <span>Common mistakes to avoid</span>
+      </div>
+      <div class="block-item">
+        <span class="grip">&#x2807;</span>
         <span class="icon">📎</span>
-        <span>Downloadable Workbook</span>
+        <span>NDA application template</span>
       </div>
       <div class="add-block">+ Add block</div>
       <div class="annotation" style="margin-top:12px">drag to reorder</div>
     </div>
 
     <div class="editor-main">
-      <!-- Currently editing: Welcome & Overview block -->
+      <!-- Currently editing: Introduction block -->
       <div class="block-editor">
         <h4>Text Block</h4>
         <div class="content-area">
-          Welcome to Product Training Basics! In this self-paced lesson, you'll learn the fundamentals of our product architecture, core features, and how to position them for different customer segments.<br><br>
-          By the end, you should be able to:<br>
-          &bull; Describe the three main product modules<br>
-          &bull; Identify which module solves which customer problem<br>
-          &bull; Pass the knowledge check with 80%+ score
+          Before delivering your first training session in France, you must obtain your <strong>official registration number</strong> (NDA &mdash; Num&eacute;ro de D&eacute;claration d'Activit&eacute;). This is not optional: it is a legal requirement for any individual or organization providing professional training.<br><br>
+          In this lesson, you will learn:<br>
+          &bull; What the NDA is and why it exists<br>
+          &bull; How to file your declaration with the DREETS<br>
+          &bull; Which documents you need to prepare<br>
+          &bull; Common pitfalls that delay approval
         </div>
       </div>
 
-      <!-- Quiz block editor showing how trainers build assessments -->
+      <!-- Quiz block editor -->
       <div class="block-editor">
-        <h4>Quiz Block &mdash; Knowledge Check</h4>
+        <h4>Quiz Block &mdash; Registration Procedures</h4>
         <div style="padding:8px 0">
-          <div style="font-size:14px;font-weight:600;margin-bottom:8px">Q: Which module handles customer onboarding?</div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:8px">Q: Within how many days of your first training contract must you file for your NDA?</div>
+          <div class="quiz-option">
+            <input type="radio"> 15 days
+          </div>
+          <div class="quiz-option">
+            <input type="radio"> 30 days
+          </div>
           <div class="quiz-option correct">
-            <input type="radio" checked> Module A: Onboarding Suite <span style="color:#34c759;font-size:11px;margin-left:auto">&#10003; Correct</span>
+            <input type="radio" checked> 90 days <span style="color:#34c759;font-size:11px;margin-left:auto">&#10003; Correct</span>
           </div>
           <div class="quiz-option">
-            <input type="radio"> Module B: Analytics Dashboard
-          </div>
-          <div class="quiz-option">
-            <input type="radio"> Module C: Billing Engine
+            <input type="radio"> 6 months
           </div>
           <div class="annotation" style="margin-top:8px">auto-graded, instant feedback for learners</div>
         </div>
@@ -186,23 +202,25 @@
 </div>
 
 <!-- ===== SCREEN 2: LEARNER VIEW ===== -->
-<!-- What learners see when they open the published lesson link -->
+<!-- A learner going through Barbara's lesson on NDA registration -->
 <div class="screen" id="learner">
   <div class="learner-container">
     <div class="progress-bar-container">
       <div class="progress-bar"><div class="fill"></div></div>
-      <div class="progress-label">40% complete &bull; 3 of 5 sections</div>
+      <div class="progress-label">60% complete &bull; 4 of 7 sections</div>
     </div>
 
     <div class="lesson-header">
-      <h1>Product Training Basics - Module 1</h1>
-      <div class="meta">By Barbara Reynaud &bull; ~15 min &bull; Self-paced</div>
+      <div class="course-name">Module 1: Create and register your training organization</div>
+      <h1>Lesson 4: Obtain your official registration number (NDA)</h1>
+      <div class="meta">By Barbara Reynaud &bull; ~20 min &bull; Self-paced</div>
     </div>
 
     <!-- Text content block -->
     <div class="lesson-block">
       <div class="text-content">
-        Welcome to Product Training Basics! In this self-paced lesson, you'll learn the fundamentals of our product architecture, core features, and how to position them for different customer segments.
+        Before delivering your first training session in France, you must obtain your <strong>official registration number</strong> (NDA &mdash; Num&eacute;ro de D&eacute;claration d'Activit&eacute;). This is not optional: it is a legal requirement for any individual or organization providing professional training.<br><br>
+        The NDA is issued by the <strong>DREETS</strong> (Direction R&eacute;gionale de l'&Eacute;conomie, de l'Emploi, du Travail et des Solidarit&eacute;s) in your region. Without it, you cannot legally invoice for training services or access public funding like CPF.
       </div>
       <div class="section-complete">
         <input type="checkbox" checked id="s1"><label for="s1">Section complete</label>
@@ -211,7 +229,7 @@
 
     <!-- Image block -->
     <div class="lesson-block">
-      <div class="placeholder-img">[ Product Architecture Diagram ]</div>
+      <div class="placeholder-img">[ NDA Application Process &mdash; Step-by-step diagram ]</div>
       <div class="section-complete">
         <input type="checkbox" checked id="s2"><label for="s2">Section complete</label>
       </div>
@@ -220,9 +238,25 @@
     <!-- Video block -->
     <div class="lesson-block">
       <div style="background:#1a1a2e;border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:40px">&#9654;</div>
-      <div style="font-size:13px;color:#8e8e93;margin-top:8px">Video: Core Features (8:32)</div>
+      <div style="font-size:13px;color:#8e8e93;margin-top:8px">Video: Filing with the DREETS &mdash; a walkthrough (6:45)</div>
       <div class="section-complete">
         <input type="checkbox" checked id="s3"><label for="s3">Section complete</label>
+      </div>
+    </div>
+
+    <!-- Text block: required documents -->
+    <div class="lesson-block">
+      <div class="text-content">
+        <strong>Required documents for your NDA application:</strong><br><br>
+        &bull; A signed copy of your first training agreement or contract<br>
+        &bull; The Cerfa n&deg;10782 form (declaration of activity)<br>
+        &bull; Proof of your legal status (Kbis extract or SIREN certificate)<br>
+        &bull; A bulletin n&deg;3 from the criminal record (casier judiciaire)<br>
+        &bull; Your training program with objectives, duration, and methods<br><br>
+        <em>Tip: Prepare all documents before starting the online filing. Incomplete applications are the #1 cause of delays.</em>
+      </div>
+      <div class="section-complete">
+        <input type="checkbox" checked id="s4"><label for="s4">Section complete</label>
       </div>
     </div>
 
@@ -231,11 +265,27 @@
       <div class="quiz-block">
         <h3>Knowledge Check (3 questions)</h3>
         <p style="font-size:14px;margin-bottom:16px;color:#636366">Question 1 of 3</p>
-        <p style="font-size:15px;font-weight:500;margin-bottom:12px">Which module handles customer onboarding?</p>
-        <div class="option selected">&#9679; Module A: Onboarding Suite</div>
-        <div class="option">&#9675; Module B: Analytics Dashboard</div>
-        <div class="option">&#9675; Module C: Billing Engine</div>
-        <div class="feedback correct">&#10003; Correct! The Onboarding Suite handles all customer onboarding workflows including welcome sequences and initial setup.</div>
+        <p style="font-size:15px;font-weight:500;margin-bottom:12px">Within how many days of your first training contract must you file for your NDA?</p>
+        <div class="option">&#9675; 15 days</div>
+        <div class="option">&#9675; 30 days</div>
+        <div class="option selected">&#9679; 90 days</div>
+        <div class="option">&#9675; 6 months</div>
+        <div class="feedback correct">&#10003; Correct! You have 90 days from signing your first training agreement to file your declaration with the DREETS.</div>
+      </div>
+    </div>
+
+    <!-- Text block: common mistakes -->
+    <div class="lesson-block">
+      <div class="text-content">
+        <strong>Common mistakes that delay your NDA:</strong><br><br>
+        &bull; Submitting an incomplete Cerfa form (missing signatures or dates)<br>
+        &bull; Not attaching a real training contract (a draft won't be accepted)<br>
+        &bull; Confusing the DREETS with other administrative bodies<br>
+        &bull; Waiting too long after your first contract &mdash; the 90-day window is strict<br><br>
+        Once approved, your NDA is valid indefinitely, but you must file an annual activity report (BPF) to keep it active.
+      </div>
+      <div class="section-complete">
+        <input type="checkbox" id="s6"><label for="s6">Section complete</label>
       </div>
     </div>
 
@@ -244,52 +294,97 @@
       <div style="background:#fafafa;border:1px solid #e5e5ea;border-radius:8px;padding:16px;display:flex;align-items:center;gap:12px">
         <span style="font-size:24px">📄</span>
         <div>
-          <div style="font-size:14px;font-weight:600">Product Training Workbook.pdf</div>
-          <div style="font-size:12px;color:#8e8e93">Build your learning path as you go</div>
+          <div style="font-size:14px;font-weight:600">NDA Application Checklist &amp; Template.pdf</div>
+          <div style="font-size:12px;color:#8e8e93">Pre-filled Cerfa form + document checklist</div>
         </div>
         <button style="margin-left:auto;background:#6c5ce7;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:13px;cursor:pointer">Download</button>
       </div>
       <div class="section-complete">
-        <input type="checkbox" id="s5"><label for="s5">Section complete</label>
+        <input type="checkbox" id="s7"><label for="s7">Section complete</label>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ===== SCREEN 3: TRAINER DASHBOARD ===== -->
-<!-- Trainer sees all their lessons and learner progress -->
+<!-- Barbara's dashboard showing her course lessons -->
 <div class="screen" id="dashboard">
   <div class="dashboard">
-    <h2>My Lessons</h2>
+    <h2>Creating and Developing a Professional Training Business</h2>
 
     <div class="stats-row">
       <div class="stat-card">
-        <div class="value">4</div>
+        <div class="value">11</div>
         <div class="label">Published Lessons</div>
       </div>
       <div class="stat-card">
-        <div class="value">127</div>
+        <div class="value">84</div>
         <div class="label">Total Learners</div>
       </div>
       <div class="stat-card">
-        <div class="value">68%</div>
+        <div class="value">71%</div>
         <div class="label">Avg Completion</div>
       </div>
       <div class="stat-card">
-        <div class="value">82%</div>
+        <div class="value">79%</div>
         <div class="label">Avg Quiz Score</div>
       </div>
     </div>
 
+    <h3 style="font-size:14px;color:#8e8e93;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Module 1: Create and register your training organization</h3>
+
     <div class="lesson-cards">
       <div class="lesson-card">
         <div style="display:flex;justify-content:space-between;align-items:start">
-          <h3>Product Training Basics - Module 1</h3>
+          <h3>1. The training market</h3>
           <span class="status published">Published</span>
         </div>
-        <div class="lesson-meta">Published 3 days ago &bull; Imported from AhaSlides</div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Published 2 weeks ago &bull; Imported from AhaSlides</div>
         <div class="lesson-stats">
-          <div class="lesson-stat"><strong>43</strong> learners</div>
+          <div class="lesson-stat"><strong>84</strong> learners</div>
+          <div class="lesson-stat"><strong>89%</strong> completion</div>
+          <div class="lesson-stat"><strong>82%</strong> avg score</div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <h3>2. Create your first training program</h3>
+          <span class="status published">Published</span>
+        </div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Published 2 weeks ago</div>
+        <div class="lesson-stats">
+          <div class="lesson-stat"><strong>78</strong> learners</div>
+          <div class="lesson-stat"><strong>76%</strong> completion</div>
+          <div class="lesson-stat"><strong>81%</strong> avg score</div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <h3>3. Legal requirements before delivering</h3>
+          <span class="status published">Published</span>
+        </div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Published 10 days ago &bull; Imported from AhaSlides</div>
+        <div class="lesson-stats">
+          <div class="lesson-stat"><strong>72</strong> learners</div>
+          <div class="lesson-stat"><strong>68%</strong> completion</div>
+          <div class="lesson-stat"><strong>75%</strong> avg score</div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <h3>4. Obtain your NDA registration number</h3>
+          <span class="status published">Published</span>
+        </div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Published 1 week ago &bull; Imported from AhaSlides</div>
+        <div class="lesson-stats">
+          <div class="lesson-stat"><strong>65</strong> learners</div>
           <div class="lesson-stat"><strong>72%</strong> completion</div>
           <div class="lesson-stat"><strong>85%</strong> avg score</div>
         </div>
@@ -297,36 +392,49 @@
 
       <div class="lesson-card">
         <div style="display:flex;justify-content:space-between;align-items:start">
-          <h3>Advanced Sales Techniques</h3>
+          <h3>5. Different funding options for learners</h3>
           <span class="status published">Published</span>
         </div>
-        <div class="lesson-meta">Published 1 week ago</div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Published 5 days ago</div>
         <div class="lesson-stats">
-          <div class="lesson-stat"><strong>38</strong> learners</div>
-          <div class="lesson-stat"><strong>61%</strong> completion</div>
-          <div class="lesson-stat"><strong>78%</strong> avg score</div>
+          <div class="lesson-stat"><strong>58</strong> learners</div>
+          <div class="lesson-stat"><strong>65%</strong> completion</div>
+          <div class="lesson-stat"><strong>77%</strong> avg score</div>
         </div>
       </div>
 
       <div class="lesson-card">
         <div style="display:flex;justify-content:space-between;align-items:start">
-          <h3>CPF Formation: Devenir Formateur</h3>
-          <span class="status published">Published</span>
-        </div>
-        <div class="lesson-meta">Published 2 weeks ago &bull; Imported from AhaSlides</div>
-        <div class="lesson-stats">
-          <div class="lesson-stat"><strong>31</strong> learners</div>
-          <div class="lesson-stat"><strong>74%</strong> completion</div>
-          <div class="lesson-stat"><strong>88%</strong> avg score</div>
-        </div>
-      </div>
-
-      <div class="lesson-card">
-        <div style="display:flex;justify-content:space-between;align-items:start">
-          <h3>Customer Success Playbook</h3>
+          <h3>6. Register your offer with France Travail</h3>
           <span class="status draft">Draft</span>
         </div>
+        <div class="lesson-module">Module 1</div>
         <div class="lesson-meta">Last edited today</div>
+        <div class="lesson-stats">
+          <div class="lesson-stat" style="color:#8e8e93">Not published yet</div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <h3>7. Accounting obligations</h3>
+          <span class="status draft">Draft</span>
+        </div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Last edited yesterday</div>
+        <div class="lesson-stats">
+          <div class="lesson-stat" style="color:#8e8e93">Not published yet</div>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <h3>8. Sustain your offer through quality</h3>
+          <span class="status draft">Draft</span>
+        </div>
+        <div class="lesson-module">Module 1</div>
+        <div class="lesson-meta">Not started</div>
         <div class="lesson-stats">
           <div class="lesson-stat" style="color:#8e8e93">Not published yet</div>
         </div>
