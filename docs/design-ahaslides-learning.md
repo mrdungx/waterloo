@@ -12,6 +12,21 @@ When a live AhaSlides session ends, the learning stops. Trainers who need ongoin
 
 AhaSlides already supports a "self-paced" mode but it's too limited for e-learning in any meaningful way.
 
+## Champion Users
+
+Four champion users recruited for ongoing feedback:
+
+| Champion | Segment | Geography | Key perspective |
+|---|---|---|---|
+| Daniel Nguyen | Train-the-trainers | Vietnam | Simplicity, "lesson as landing page" |
+| Barbara Reynaud | Independent trainer | France | Replacing 5-tool stack, CPF compliance |
+| Hannah Choi | Coach / educator | US (NYC) | Inclusive learning, creative AhaSlides use, executive function coaching |
+| Mark Cunzolo | Corporate training coordinator | US (PA) | Multi-presenter, centralized control, data reporting at scale |
+
+**Hannah Choi** — AhaSlides Ambassador. Executive Function Coach at Beyond BookSmart (8+ years). M.A. in Education (UC Santa Barbara). Hosts "I Think I Can Be Happier" podcast. Co-owns BonnaH Co Fiber Arts (teaching sewing/embroidery). Uses AhaSlides creatively in training sessions with neurodiverse populations. Her feedback has previously shaped AhaSlides product development (per Dave's LinkedIn recommendation). LinkedIn: linkedin.com/in/hannahchoi/
+
+**Mark Cunzolo** — Instructional Designer at Performance Review Institute (PRI). Manages 20+ instructor licenses for specialized aerospace training. Creates all materials centrally; instructors only present. Power user: presentations with 70+ quiz slides, maintains his own feature request spreadsheet, writes detailed feedback with concept mockups. Has a dedicated Slack channel (#mark-ahaslides). His needs around multi-presenter workflows, session data logging, and centralized reporting will stress-test the dashboard. LinkedIn: linkedin.com/in/markcunzolo/
+
 ## Demand Evidence
 
 Three independent demand signals across different segments and geographies:
@@ -112,10 +127,48 @@ Three screens:
 
 Wireframe: `/tmp/gstack-sketch-lesson-publisher.html`
 
+## User Feedback
+
+### Daniel Nguyen — 2026-05-01
+
+Reviewed the wireframe. Key feedback:
+
+1. **Validates the direction.** "I also imagined it like this." Wireframe matches his mental model.
+2. **Dashboard is essential.** Confirmed the trainer dashboard is a must-have, not nice-to-have.
+3. **Learner login is required.** Wants learners to authenticate so trainers can track specifically who is learning what. Aggregate-only stats are not enough. This resolves Open Question #2: learner accounts are needed for v1.
+4. **Reference: TeachPlay.** Shared https://www.teachplay.dev/session-01 as a model. Key patterns from that site:
+   - Left sidebar with session/part structure and progress tracking ("0/12 sessions")
+   - Student/Instructor view toggle
+   - Rich content blocks: text, tables, embedded video, interactive minigames, worked examples
+   - Self-assessment rubrics with analytics
+   - Exit tickets (open-ended text responses)
+   - Preparation checklists with persistent checkboxes
+   - Enrollment via name + email for cross-device progress
+   - "Mark session complete" button for explicit learner progression
+   - Print/PDF export
+
+**Implications for wireframe:**
+- Add learner registration/login step (simple: name + email, not full account system)
+- TeachPlay's richer activity types (self-assessments, open-ended responses, checklists) are v2 scope but set the bar for where this heads
+- The session sidebar with progress hints at Course hierarchy (Approach B) being the natural next step
+- Student/Instructor toggle is worth considering vs. separate tabs
+
+### Barbara Reynaud — pending
+
+Not yet reviewed.
+
+### Hannah Choi — pending
+
+Not yet reviewed. Does not know about the project yet. Needs full context when reaching out.
+
+### Mark Cunzolo — pending
+
+Not yet reviewed. Has seen the project thesis already. Needs wireframe walkthrough.
+
 ## Open Questions
 
 1. **Pricing model:** Per-learner seats? Higher-tier plan? Usage-based? This shapes the revenue model.
-2. **Learner identity:** Do learners need accounts? Or can they complete lessons with just a name/email? Accounts add friction but enable progress tracking across lessons.
+2. ~~**Learner identity:** Do learners need accounts? Or can they complete lessons with just a name/email?~~ **Resolved:** Daniel confirmed learner login is required. Minimum: name + email registration. Full accounts can come later.
 3. **Custom domains:** Daniel wants to publish on his own website. How important is this for v1?
 4. **CPF compliance:** Barbara's training is CPF-funded. Are there regulatory requirements for the course platform (completion certificates, time tracking)?
 5. **Existing self-paced mode:** How does the new Lesson Publisher relate to the current limited self-paced mode? Replacement? Extension? Parallel product?

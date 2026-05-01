@@ -94,6 +94,42 @@
   .lesson-card .status.published { background: #f0fff4; color: #1b7a3d; }
   .lesson-card .status.draft { background: #fff3e0; color: #e65100; }
 
+  /* ===== SCREEN 2a: LEARNER REGISTRATION ===== */
+  .register-container { display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 50px); background: #f5f5f7; }
+  .register-card { background: #fff; border-radius: 16px; padding: 48px 40px; max-width: 420px; width: 100%; border: 1px solid #e5e5ea; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center; }
+  .register-card h2 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .register-card .subtitle { font-size: 14px; color: #8e8e93; margin-bottom: 24px; }
+  .register-card .form-group { text-align: left; margin-bottom: 16px; }
+  .register-card label { font-size: 12px; font-weight: 600; color: #636366; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px; }
+  .register-card input[type="text"],
+  .register-card input[type="email"] { width: 100%; padding: 12px 14px; border: 1px solid #e5e5ea; border-radius: 8px; font-size: 14px; color: #1a1a2e; }
+  .register-card input:focus { outline: none; border-color: #6c5ce7; box-shadow: 0 0 0 3px rgba(108,92,231,0.1); }
+  .register-card .btn-start { width: 100%; background: #6c5ce7; color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 8px; }
+  .register-card .privacy-note { font-size: 11px; color: #aeaeb2; margin-top: 16px; }
+
+  /* ===== SCREEN 3b: LEARNER DETAIL TABLE ===== */
+  .learner-table-section { margin-top: 32px; }
+  .learner-table-section h3 { font-size: 14px; color: #8e8e93; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .learner-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5ea; }
+  .learner-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #8e8e93; padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e5ea; background: #fafafa; }
+  .learner-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #f0f0f2; }
+  .learner-table tr:last-child td { border-bottom: none; }
+  .learner-table .progress-mini { display: inline-block; width: 80px; height: 6px; background: #e5e5ea; border-radius: 3px; vertical-align: middle; margin-right: 6px; }
+  .learner-table .progress-mini .fill { height: 100%; border-radius: 3px; background: #6c5ce7; }
+  .learner-table .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .learner-table .status-dot.active { background: #34c759; }
+  .learner-table .status-dot.idle { background: #ffcc00; }
+  .learner-table .status-dot.not-started { background: #e5e5ea; }
+  .tab-switcher { display: flex; gap: 0; margin-bottom: 24px; }
+  .tab-switcher .tab-btn { padding: 8px 20px; font-size: 13px; font-weight: 600; border: 1px solid #e5e5ea; background: #fff; color: #8e8e93; cursor: pointer; }
+  .tab-switcher .tab-btn:first-child { border-radius: 8px 0 0 8px; }
+  .tab-switcher .tab-btn:last-child { border-radius: 0 8px 8px 0; }
+  .tab-switcher .tab-btn.active { background: #6c5ce7; color: #fff; border-color: #6c5ce7; }
+
+  /* Mark complete button */
+  .btn-mark-complete { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: #6c5ce7; color: #fff; border: none; padding: 16px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 32px; }
+  .btn-mark-complete.completed { background: #34c759; }
+
   /* Annotation style - intentionally rough */
   .annotation { font-family: 'Comic Sans MS', cursive; font-size: 11px; color: #ff6b6b; transform: rotate(-2deg); display: inline-block; margin: 4px 0; }
 </style>
@@ -103,8 +139,9 @@
 <!-- Tab navigation to switch between screens -->
 <div class="tabs">
   <div class="tab active" onclick="showScreen('editor')">1. Lesson Editor</div>
-  <div class="tab" onclick="showScreen('learner')">2. Learner View</div>
-  <div class="tab" onclick="showScreen('dashboard')">3. Trainer Dashboard</div>
+  <div class="tab" onclick="showScreen('register')">2. Learner Registration</div>
+  <div class="tab" onclick="showScreen('learner')">3. Learner View</div>
+  <div class="tab" onclick="showScreen('dashboard')">4. Trainer Dashboard</div>
 </div>
 
 <!-- ===== SCREEN 1: LESSON EDITOR ===== -->
@@ -201,7 +238,36 @@
   </div>
 </div>
 
-<!-- ===== SCREEN 2: LEARNER VIEW ===== -->
+<!-- ===== SCREEN 2: LEARNER REGISTRATION ===== -->
+<!-- Learner arrives at the lesson link and must register before accessing content -->
+<div class="screen" id="register">
+  <div class="register-container">
+    <div class="register-card">
+      <div style="font-size:40px;margin-bottom:16px">📚</div>
+      <h2>Obtain your official registration number (NDA)</h2>
+      <div class="subtitle">By Barbara Reynaud &bull; ~20 min &bull; Self-paced</div>
+      <div style="background:#f5f5f7;border-radius:8px;padding:12px;margin-bottom:24px;font-size:13px;color:#636366;text-align:left">
+        <strong>What you'll learn:</strong><br>
+        &bull; What the NDA is and why it exists<br>
+        &bull; How to file your declaration with the DREETS<br>
+        &bull; Which documents you need to prepare
+      </div>
+      <div class="form-group">
+        <label>Full name</label>
+        <input type="text" placeholder="e.g. Marie Dupont">
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" placeholder="e.g. marie@example.com">
+      </div>
+      <button class="btn-start">Start lesson &rarr;</button>
+      <div class="privacy-note">Your progress will be tracked so your trainer can see your results.</div>
+      <div class="annotation" style="margin-top:16px">simple gate &mdash; no password, no account creation</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCREEN 3: LEARNER VIEW ===== -->
 <!-- A learner going through Barbara's lesson on NDA registration -->
 <div class="screen" id="learner">
   <div class="learner-container">
@@ -303,6 +369,10 @@
         <input type="checkbox" id="s7"><label for="s7">Section complete</label>
       </div>
     </div>
+
+    <!-- Mark lesson complete -->
+    <button class="btn-mark-complete">&#10003; Mark lesson complete</button>
+    <div class="annotation" style="text-align:center;margin-top:8px">explicit completion &mdash; trainer sees who finished</div>
   </div>
 </div>
 
@@ -331,6 +401,12 @@
       </div>
     </div>
 
+    <div class="tab-switcher">
+      <div class="tab-btn active" onclick="showDashTab('lessons', this)">Lessons</div>
+      <div class="tab-btn" onclick="showDashTab('learners', this)">Learners</div>
+    </div>
+
+    <div id="dash-lessons">
     <h3 style="font-size:14px;color:#8e8e93;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Module 1: Create and register your training organization</h3>
 
     <div class="lesson-cards">
@@ -440,6 +516,78 @@
         </div>
       </div>
     </div>
+    </div><!-- end dash-lessons -->
+
+    <!-- Per-learner tracking view -->
+    <div id="dash-learners" style="display:none">
+      <div class="learner-table-section">
+        <h3>All learners &bull; 84 enrolled</h3>
+        <div class="annotation" style="margin-bottom:12px">Daniel's request: track specifically who is learning what</div>
+        <table class="learner-table">
+          <thead>
+            <tr>
+              <th>Learner</th>
+              <th>Enrolled</th>
+              <th>Progress</th>
+              <th>Last active</th>
+              <th>Quiz avg</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Marie Dupont</strong><br><span style="color:#8e8e93;font-size:11px">marie@example.com</span></td>
+              <td>Apr 20</td>
+              <td><span class="progress-mini"><span class="fill" style="width:100%"></span></span> 7/7</td>
+              <td>Today</td>
+              <td>92%</td>
+              <td><span class="status-dot active"></span>Completed</td>
+            </tr>
+            <tr>
+              <td><strong>Pierre Martin</strong><br><span style="color:#8e8e93;font-size:11px">pierre.m@mail.fr</span></td>
+              <td>Apr 21</td>
+              <td><span class="progress-mini"><span class="fill" style="width:71%"></span></span> 5/7</td>
+              <td>Yesterday</td>
+              <td>78%</td>
+              <td><span class="status-dot active"></span>In progress</td>
+            </tr>
+            <tr>
+              <td><strong>Sophie Leclerc</strong><br><span style="color:#8e8e93;font-size:11px">s.leclerc@gmail.com</span></td>
+              <td>Apr 22</td>
+              <td><span class="progress-mini"><span class="fill" style="width:43%"></span></span> 3/7</td>
+              <td>2 days ago</td>
+              <td>67%</td>
+              <td><span class="status-dot active"></span>In progress</td>
+            </tr>
+            <tr>
+              <td><strong>Jean Moreau</strong><br><span style="color:#8e8e93;font-size:11px">jmoreau@company.fr</span></td>
+              <td>Apr 23</td>
+              <td><span class="progress-mini"><span class="fill" style="width:28%"></span></span> 2/7</td>
+              <td>3 days ago</td>
+              <td>83%</td>
+              <td><span class="status-dot idle"></span>Idle</td>
+            </tr>
+            <tr>
+              <td><strong>Camille Petit</strong><br><span style="color:#8e8e93;font-size:11px">camille.p@outlook.fr</span></td>
+              <td>Apr 25</td>
+              <td><span class="progress-mini"><span class="fill" style="width:14%"></span></span> 1/7</td>
+              <td>5 days ago</td>
+              <td>100%</td>
+              <td><span class="status-dot idle"></span>Idle</td>
+            </tr>
+            <tr>
+              <td><strong>Lucas Bernard</strong><br><span style="color:#8e8e93;font-size:11px">lucas.b@free.fr</span></td>
+              <td>Apr 28</td>
+              <td><span class="progress-mini"><span class="fill" style="width:0%"></span></span> 0/7</td>
+              <td>&mdash;</td>
+              <td>&mdash;</td>
+              <td><span class="status-dot not-started"></span>Not started</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!-- end dash-learners -->
+
   </div>
 </div>
 
@@ -450,8 +598,15 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
   const tabs = document.querySelectorAll('.tab');
   if (id === 'editor') tabs[0].classList.add('active');
-  if (id === 'learner') tabs[1].classList.add('active');
-  if (id === 'dashboard') tabs[2].classList.add('active');
+  if (id === 'register') tabs[1].classList.add('active');
+  if (id === 'learner') tabs[2].classList.add('active');
+  if (id === 'dashboard') tabs[3].classList.add('active');
+}
+function showDashTab(tab, el) {
+  document.getElementById('dash-lessons').style.display = tab === 'lessons' ? 'block' : 'none';
+  document.getElementById('dash-learners').style.display = tab === 'learners' ? 'block' : 'none';
+  document.querySelectorAll('.tab-switcher .tab-btn').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
 }
 </script>
 
