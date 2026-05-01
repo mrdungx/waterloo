@@ -9,6 +9,17 @@ export interface TrainerPayload {
 }
 
 export async function trainerAuth(request: FastifyRequest, reply: FastifyReply) {
+  // Dev mode: skip auth, use a fixed dev trainer
+  if (request.server.config.NODE_ENV === 'development') {
+    request.trainer = {
+      userId: 'dev-trainer-001',
+      email: 'dave@ahaslides.com',
+      displayName: 'Dave (Dev)',
+      avatarUrl: undefined,
+    };
+    return;
+  }
+
   const authHeader = request.headers.authorization;
   if (!authHeader?.startsWith('Bearer ')) {
     return reply.status(401).send({ error: 'Missing or invalid Authorization header' });
