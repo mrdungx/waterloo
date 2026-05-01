@@ -159,20 +159,20 @@ Not yet reviewed.
 
 ### Hannah Choi — pending
 
-Not yet reviewed. Does not know about the project yet. Needs full context when reaching out.
+Wireframe sent 2026-05-01 with full project context. Awaiting response.
 
 ### Mark Cunzolo — pending
 
-Not yet reviewed. Has seen the project thesis already. Needs wireframe walkthrough.
+Wireframe sent 2026-05-01 (already had the project thesis). Awaiting response.
 
 ## Open Questions
 
-1. **Pricing model:** Per-learner seats? Higher-tier plan? Usage-based? This shapes the revenue model.
+1. **Pricing model:** Leaning toward bundling e-learning into existing AhaSlides plans (Pro, Essential, Edu) for simplicity. The alternative is selling separately. Bundling risk: no incremental revenue from existing users. Bundling upside: retention play (prevents Vani-style churn). Possible middle path: bundle a basic version (X lessons, Y learners) into existing plans, gate power features (unlimited learners, per-learner analytics, data export) behind an upgrade. For MVP/beta, skip pricing -- give it to champions for free to validate.
 2. ~~**Learner identity:** Do learners need accounts? Or can they complete lessons with just a name/email?~~ **Resolved:** Daniel confirmed learner login is required. Minimum: name + email registration. Full accounts can come later.
-3. **Custom domains:** Daniel wants to publish on his own website. How important is this for v1?
-4. **CPF compliance:** Barbara's training is CPF-funded. Are there regulatory requirements for the course platform (completion certificates, time tracking)?
-5. **Existing self-paced mode:** How does the new Lesson Publisher relate to the current limited self-paced mode? Replacement? Extension? Parallel product?
-6. **Mobile experience:** How many learners will access lessons on mobile? This affects the learner view design significantly.
+3. **Custom domains:** Daniel wants to publish on his own website. Deferred -- revisit later.
+4. **CPF compliance:** Barbara's training is CPF-funded. Are there regulatory requirements for the course platform (completion certificates, time tracking)? Deferred -- revisit when Barbara gives feedback.
+5. ~~**Existing self-paced mode:** How does the new Lesson Publisher relate to the current limited self-paced mode?~~ **Resolved:** Replacement. No parallel products -- keeps things clean. Flag to product team early re: migration and messaging.
+6. ~~**Mobile experience:** How many learners will access lessons on mobile?~~ **Resolved:** Assume 50% of learners on mobile. Learner view is single-column and should work well on mobile as-is. Editor and dashboard are desktop-first -- that's fine since trainers build on desktop, learners consume on mobile.
 
 ## Success Criteria
 
