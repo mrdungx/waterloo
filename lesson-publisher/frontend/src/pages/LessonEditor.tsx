@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../lib/api.js';
+import { RichTextEditor } from '../components/RichTextEditor.js';
 
 const BLOCK_TYPES = [
   { type: 'text', icon: '📝', label: 'Text' },
@@ -185,10 +186,10 @@ function BlockEditor({ block, lessonId, onUpdate }: { block: any; lessonId: stri
       />
 
       {block.type === 'text' && (
-        <textarea
-          value={content.html ?? ''}
-          onChange={(e) => setContent({ html: e.target.value })}
-          style={{ width: '100%', minHeight: 200, padding: 16, border: '1px solid #e5e5ea', borderRadius: 8, fontSize: 14, fontFamily: 'monospace', resize: 'vertical' }}
+        <RichTextEditor
+          content={content.html ?? ''}
+          onChange={(html) => setContent({ html })}
+          placeholder="Start writing your content..."
         />
       )}
 
